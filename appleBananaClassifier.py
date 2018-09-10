@@ -1,4 +1,6 @@
 from sklearn import tree
+from sklearn import svm
+from sklearn.naive_bayes import GaussianNB
 
 #[length, width, height]
 X = [[5,5,5],
@@ -17,8 +19,23 @@ clf = tree.DecisionTreeClassifier()
 clf = clf.fit(X, Y)
 
 # Apple
-prediction = clf.predict([[3,3,10]])
+prediction = clf.predict([[100,5,12]])
 
 print(prediction)
+
+gnb = GaussianNB()
+gnb = gnb.fit(X, Y)
+
+prediction = gnb.predict([[100,5,12]])
+
+print(prediction)
+
+clf = svm.SVC()
+clf.fit(X, Y)
+prediction = clf.predict([[100,5,12]])
+
+print(prediction)
+
+
 
 
